@@ -14,6 +14,23 @@ spring:
           max-idle: 8
           min-idle: 0
 
+logging:
+  level:
+    com.yl.pj: DEBUG
+    org.springframework.web: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %5p %5pid --- [%15.15t] %-40.40logger{39} : %m%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %5p %5pid --- [%15.15t] %-40.40logger{39} : %m%n"
+  file:
+    name: ./logs/application.log
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      max-history: 30
+      total-size-cap: 1GB
+
   datasource:
     url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: ${MYSQL_USER}
