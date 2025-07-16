@@ -25,6 +25,6 @@ public class MemberController {
 
     @PostMapping
     public Member createMember(@RequestBody MemberCreateRequest request) {
-        return memberService.save(request.getName());
+        return memberService.save(request.name());
     }
 }
